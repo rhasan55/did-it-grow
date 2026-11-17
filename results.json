@@ -1,0 +1,1007 @@
+[
+  {
+    "scenario": "growth",
+    "label": "Real growth",
+    "seed": 55,
+    "units": "USD per baseline-eligible customer per week",
+    "verdict": "GROWTH in this simulation",
+    "naive_before_after": 7.4951218125000025,
+    "cohort_did": 5.708415906249999,
+    "bootstrap_95_interval": [
+      5.588851704687498,
+      5.815139936718751
+    ],
+    "synthetic_control": {
+      "estimate": 5.932974156148952,
+      "max_validation_rmse": 0.25187577118534077,
+      "cohorts": [
+        {
+          "cohort": 24,
+          "effect": 5.683931187298045,
+          "validation_rmse": 0.16408833499895104,
+          "weights": [
+            0.14920629832674198,
+            0.0,
+            0.12779405743398414,
+            0.2449493563631742,
+            0.10976394415878363,
+            0.025947616977528336,
+            0.0,
+            0.0,
+            2.0162079158617092e-17,
+            6.967260378521377e-19,
+            0.07737448831771862,
+            0.0,
+            0.0,
+            1.1071754807812659e-17,
+            0.06056779109787394,
+            0.16295019012016357,
+            0.0,
+            0.0,
+            0.04144625720403169,
+            4.636715360608112e-19
+          ]
+        },
+        {
+          "cohort": 28,
+          "effect": 6.1820171249998594,
+          "validation_rmse": 0.25187577118534077,
+          "weights": [
+            1.1056744356799059e-15,
+            3.7819131933423127e-16,
+            0.0,
+            5.635274380126173e-16,
+            0.0,
+            7.17747672722395e-16,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.734209000707647e-16,
+            9.285253924513364e-18,
+            5.04642665846623e-17,
+            2.1233123157855896e-16,
+            2.5967462599194974e-16,
+            1.6538002657621702e-17,
+            9.245658206763063e-17,
+            5.258350923652657e-16,
+            0.9999999999999998
+          ]
+        }
+      ],
+      "event_path": [
+        {
+          "cohort": 24,
+          "event_week": -8,
+          "effect": 0.004760662951724726
+        },
+        {
+          "cohort": 24,
+          "event_week": -7,
+          "effect": 0.03339325620045486
+        },
+        {
+          "cohort": 24,
+          "event_week": -6,
+          "effect": 0.00368929221582448
+        },
+        {
+          "cohort": 24,
+          "event_week": -5,
+          "effect": 0.017620496502559035
+        },
+        {
+          "cohort": 24,
+          "event_week": -4,
+          "effect": -0.16751423094922302
+        },
+        {
+          "cohort": 24,
+          "event_week": -3,
+          "effect": -0.0030037539438225735
+        },
+        {
+          "cohort": 24,
+          "event_week": -2,
+          "effect": -0.022261422448075052
+        },
+        {
+          "cohort": 24,
+          "event_week": -1,
+          "effect": -0.28130822187279847
+        },
+        {
+          "cohort": 24,
+          "event_week": 0,
+          "effect": 5.065306615006456
+        },
+        {
+          "cohort": 24,
+          "event_week": 1,
+          "effect": 5.1505936829341366
+        },
+        {
+          "cohort": 24,
+          "event_week": 2,
+          "effect": 5.4339334079024155
+        },
+        {
+          "cohort": 24,
+          "event_week": 3,
+          "effect": 5.521664906576291
+        },
+        {
+          "cohort": 24,
+          "event_week": 4,
+          "effect": 5.739651515034488
+        },
+        {
+          "cohort": 24,
+          "event_week": 5,
+          "effect": 5.976320560496461
+        },
+        {
+          "cohort": 24,
+          "event_week": 6,
+          "effect": 6.230441909536573
+        },
+        {
+          "cohort": 24,
+          "event_week": 7,
+          "effect": 6.353536900897538
+        },
+        {
+          "cohort": 28,
+          "event_week": -8,
+          "effect": 0.39220799999987577
+        },
+        {
+          "cohort": 28,
+          "event_week": -7,
+          "effect": 0.13360999999987655
+        },
+        {
+          "cohort": 28,
+          "event_week": -6,
+          "effect": 0.6402139999998724
+        },
+        {
+          "cohort": 28,
+          "event_week": -5,
+          "effect": 0.507588999999868
+        },
+        {
+          "cohort": 28,
+          "event_week": -4,
+          "effect": 0.17143399999986286
+        },
+        {
+          "cohort": 28,
+          "event_week": -3,
+          "effect": 0.17999999999987892
+        },
+        {
+          "cohort": 28,
+          "event_week": -2,
+          "effect": -0.15966600000012932
+        },
+        {
+          "cohort": 28,
+          "event_week": -1,
+          "effect": 0.408022999999865
+        },
+        {
+          "cohort": 28,
+          "event_week": 0,
+          "effect": 4.899210999999859
+        },
+        {
+          "cohort": 28,
+          "event_week": 1,
+          "effect": 6.102171999999868
+        },
+        {
+          "cohort": 28,
+          "event_week": 2,
+          "effect": 5.689282999999868
+        },
+        {
+          "cohort": 28,
+          "event_week": 3,
+          "effect": 6.373791999999867
+        },
+        {
+          "cohort": 28,
+          "event_week": 4,
+          "effect": 6.584758999999856
+        },
+        {
+          "cohort": 28,
+          "event_week": 5,
+          "effect": 6.400000999999854
+        },
+        {
+          "cohort": 28,
+          "event_week": 6,
+          "effect": 6.52147499999986
+        },
+        {
+          "cohort": 28,
+          "event_week": 7,
+          "effect": 6.885443999999843
+        }
+      ]
+    },
+    "new_offer_lift": 11.4,
+    "existing_product_change": -3.411584093750001,
+    "net_revenue_lift": 7.988415906249998,
+    "contribution_lift": 5.708415906249999,
+    "pretrend_slope": 0.01262069230769215,
+    "false_launch_placebo": 0.03161049999999674,
+    "identification_checks_pass": true,
+    "simulated_truth": 5.7,
+    "absolute_estimation_error": 0.008415906249998883,
+    "quality": {
+      "raw_rows": 70400,
+      "unique_orders": 64000,
+      "panel_rows": 1600,
+      "missing_cells": 0,
+      "reconciles": true,
+      "ledger_net_cents": 5988141430
+    },
+    "event_path": [
+      {
+        "cohort": 24,
+        "event_week": 0,
+        "effect": 5.200210500000001
+      },
+      {
+        "cohort": 24,
+        "event_week": 1,
+        "effect": 5.288978000000002
+      },
+      {
+        "cohort": 24,
+        "event_week": 2,
+        "effect": 5.555402000000001
+      },
+      {
+        "cohort": 24,
+        "event_week": 3,
+        "effect": 5.7859845
+      },
+      {
+        "cohort": 24,
+        "event_week": 4,
+        "effect": 5.902895
+      },
+      {
+        "cohort": 24,
+        "event_week": 5,
+        "effect": 6.214065999999999
+      },
+      {
+        "cohort": 24,
+        "event_week": 6,
+        "effect": 6.359385000000001
+      },
+      {
+        "cohort": 24,
+        "event_week": 7,
+        "effect": 6.5698989999999995
+      },
+      {
+        "cohort": 28,
+        "event_week": 0,
+        "effect": 4.722406499999997
+      },
+      {
+        "cohort": 28,
+        "event_week": 1,
+        "effect": 5.105544499999999
+      },
+      {
+        "cohort": 28,
+        "event_week": 2,
+        "effect": 5.137148499999996
+      },
+      {
+        "cohort": 28,
+        "event_week": 3,
+        "effect": 5.482319499999997
+      },
+      {
+        "cohort": 28,
+        "event_week": 4,
+        "effect": 5.847964999999998
+      },
+      {
+        "cohort": 28,
+        "event_week": 5,
+        "effect": 5.876140499999999
+      },
+      {
+        "cohort": 28,
+        "event_week": 6,
+        "effect": 6.064625500000001
+      },
+      {
+        "cohort": 28,
+        "event_week": 7,
+        "effect": 6.221684499999993
+      }
+    ],
+    "not_identified_by_checks": "Passing these checks does not establish parallel trends or rule out simultaneous market-specific shocks."
+  },
+  {
+    "scenario": "migration",
+    "label": "Same customers, different product",
+    "seed": 55,
+    "units": "USD per baseline-eligible customer per week",
+    "verdict": "MIGRATION \u2014 no contribution gain",
+    "naive_before_after": -0.48487818749999434,
+    "cohort_did": -2.2715840937500005,
+    "bootstrap_95_interval": [
+      -2.391148295312502,
+      -2.164860063281249
+    ],
+    "synthetic_control": {
+      "estimate": -2.047025843851048,
+      "max_validation_rmse": 0.25187577118534077,
+      "cohorts": [
+        {
+          "cohort": 24,
+          "effect": -2.2960688127019555,
+          "validation_rmse": 0.16408833499895104,
+          "weights": [
+            0.14920629832674198,
+            0.0,
+            0.12779405743398414,
+            0.2449493563631742,
+            0.10976394415878363,
+            0.025947616977528336,
+            0.0,
+            0.0,
+            2.0162079158617092e-17,
+            6.967260378521377e-19,
+            0.07737448831771862,
+            0.0,
+            0.0,
+            1.1071754807812659e-17,
+            0.06056779109787394,
+            0.16295019012016357,
+            0.0,
+            0.0,
+            0.04144625720403169,
+            4.636715360608112e-19
+          ]
+        },
+        {
+          "cohort": 28,
+          "effect": -1.79798287500014,
+          "validation_rmse": 0.25187577118534077,
+          "weights": [
+            1.1056744356799059e-15,
+            3.7819131933423127e-16,
+            0.0,
+            5.635274380126173e-16,
+            0.0,
+            7.17747672722395e-16,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.734209000707647e-16,
+            9.285253924513364e-18,
+            5.04642665846623e-17,
+            2.1233123157855896e-16,
+            2.5967462599194974e-16,
+            1.6538002657621702e-17,
+            9.245658206763063e-17,
+            5.258350923652657e-16,
+            0.9999999999999998
+          ]
+        }
+      ],
+      "event_path": [
+        {
+          "cohort": 24,
+          "event_week": -8,
+          "effect": 0.004760662951724726
+        },
+        {
+          "cohort": 24,
+          "event_week": -7,
+          "effect": 0.03339325620045486
+        },
+        {
+          "cohort": 24,
+          "event_week": -6,
+          "effect": 0.00368929221582448
+        },
+        {
+          "cohort": 24,
+          "event_week": -5,
+          "effect": 0.017620496502559035
+        },
+        {
+          "cohort": 24,
+          "event_week": -4,
+          "effect": -0.16751423094922302
+        },
+        {
+          "cohort": 24,
+          "event_week": -3,
+          "effect": -0.0030037539438225735
+        },
+        {
+          "cohort": 24,
+          "event_week": -2,
+          "effect": -0.022261422448075052
+        },
+        {
+          "cohort": 24,
+          "event_week": -1,
+          "effect": -0.28130822187279847
+        },
+        {
+          "cohort": 24,
+          "event_week": 0,
+          "effect": -1.934693384993544
+        },
+        {
+          "cohort": 24,
+          "event_week": 1,
+          "effect": -2.1294063170658646
+        },
+        {
+          "cohort": 24,
+          "event_week": 2,
+          "effect": -2.1260665920975867
+        },
+        {
+          "cohort": 24,
+          "event_week": 3,
+          "effect": -2.3183350934237055
+        },
+        {
+          "cohort": 24,
+          "event_week": 4,
+          "effect": -2.380348484965509
+        },
+        {
+          "cohort": 24,
+          "event_week": 5,
+          "effect": -2.4236794395035375
+        },
+        {
+          "cohort": 24,
+          "event_week": 6,
+          "effect": -2.4495580904634338
+        },
+        {
+          "cohort": 24,
+          "event_week": 7,
+          "effect": -2.606463099102463
+        },
+        {
+          "cohort": 28,
+          "event_week": -8,
+          "effect": 0.39220799999987577
+        },
+        {
+          "cohort": 28,
+          "event_week": -7,
+          "effect": 0.13360999999987655
+        },
+        {
+          "cohort": 28,
+          "event_week": -6,
+          "effect": 0.6402139999998724
+        },
+        {
+          "cohort": 28,
+          "event_week": -5,
+          "effect": 0.507588999999868
+        },
+        {
+          "cohort": 28,
+          "event_week": -4,
+          "effect": 0.17143399999986286
+        },
+        {
+          "cohort": 28,
+          "event_week": -3,
+          "effect": 0.17999999999987892
+        },
+        {
+          "cohort": 28,
+          "event_week": -2,
+          "effect": -0.15966600000012932
+        },
+        {
+          "cohort": 28,
+          "event_week": -1,
+          "effect": 0.408022999999865
+        },
+        {
+          "cohort": 28,
+          "event_week": 0,
+          "effect": -2.100789000000141
+        },
+        {
+          "cohort": 28,
+          "event_week": 1,
+          "effect": -1.177828000000133
+        },
+        {
+          "cohort": 28,
+          "event_week": 2,
+          "effect": -1.870717000000134
+        },
+        {
+          "cohort": 28,
+          "event_week": 3,
+          "effect": -1.4662080000001438
+        },
+        {
+          "cohort": 28,
+          "event_week": 4,
+          "effect": -1.5352410000001342
+        },
+        {
+          "cohort": 28,
+          "event_week": 5,
+          "effect": -1.9999990000001446
+        },
+        {
+          "cohort": 28,
+          "event_week": 6,
+          "effect": -2.1585250000001395
+        },
+        {
+          "cohort": 28,
+          "event_week": 7,
+          "effect": -2.0745560000001504
+        }
+      ]
+    },
+    "new_offer_lift": 11.4,
+    "existing_product_change": -11.391584093750001,
+    "net_revenue_lift": 0.008415906249999317,
+    "contribution_lift": -2.2715840937500005,
+    "pretrend_slope": 0.01262069230769215,
+    "false_launch_placebo": 0.03161049999999674,
+    "identification_checks_pass": true,
+    "simulated_truth": -2.2800000000000002,
+    "absolute_estimation_error": 0.008415906249999772,
+    "quality": {
+      "raw_rows": 70400,
+      "unique_orders": 64000,
+      "panel_rows": 1600,
+      "missing_cells": 0,
+      "reconciles": true,
+      "ledger_net_cents": 5752941430
+    },
+    "event_path": [
+      {
+        "cohort": 24,
+        "event_week": 0,
+        "effect": -1.7997894999999995
+      },
+      {
+        "cohort": 24,
+        "event_week": 1,
+        "effect": -1.991021999999997
+      },
+      {
+        "cohort": 24,
+        "event_week": 2,
+        "effect": -2.0045979999999988
+      },
+      {
+        "cohort": 24,
+        "event_week": 3,
+        "effect": -2.0540155
+      },
+      {
+        "cohort": 24,
+        "event_week": 4,
+        "effect": -2.2171049999999997
+      },
+      {
+        "cohort": 24,
+        "event_week": 5,
+        "effect": -2.185934
+      },
+      {
+        "cohort": 24,
+        "event_week": 6,
+        "effect": -2.3206149999999983
+      },
+      {
+        "cohort": 24,
+        "event_week": 7,
+        "effect": -2.3901010000000005
+      },
+      {
+        "cohort": 28,
+        "event_week": 0,
+        "effect": -2.2775935000000027
+      },
+      {
+        "cohort": 28,
+        "event_week": 1,
+        "effect": -2.174455500000002
+      },
+      {
+        "cohort": 28,
+        "event_week": 2,
+        "effect": -2.4228515000000024
+      },
+      {
+        "cohort": 28,
+        "event_week": 3,
+        "effect": -2.3576805000000025
+      },
+      {
+        "cohort": 28,
+        "event_week": 4,
+        "effect": -2.2720350000000002
+      },
+      {
+        "cohort": 28,
+        "event_week": 5,
+        "effect": -2.5238595000000013
+      },
+      {
+        "cohort": 28,
+        "event_week": 6,
+        "effect": -2.615374499999998
+      },
+      {
+        "cohort": 28,
+        "event_week": 7,
+        "effect": -2.738315500000005
+      }
+    ],
+    "not_identified_by_checks": "Passing these checks does not establish parallel trends or rule out simultaneous market-specific shocks."
+  },
+  {
+    "scenario": "broken_comparison",
+    "label": "A comparison you should reject",
+    "seed": 55,
+    "units": "USD per baseline-eligible customer per week",
+    "verdict": "HOLD \u2014 comparison fails checks",
+    "naive_before_after": 12.695121812500002,
+    "cohort_did": 8.63341590625,
+    "bootstrap_95_interval": [
+      8.513851704687498,
+      8.74013993671875
+    ],
+    "synthetic_control": {
+      "estimate": 23.513268687497593,
+      "max_validation_rmse": 16.743748108741315,
+      "cohorts": [
+        {
+          "cohort": 24,
+          "effect": 20.3695202499993,
+          "validation_rmse": 10.961210139876851,
+          "weights": [
+            0.0,
+            0.0,
+            2.6775021595232024e-15,
+            7.097766657864557e-16,
+            0.0,
+            0.0,
+            3.3922719787559946e-15,
+            0.0,
+            0.0,
+            0.0,
+            6.225665751724269e-16,
+            1.0964827835633708e-15,
+            4.3700627829417666e-15,
+            0.0,
+            2.1763950642194487e-15,
+            0.0,
+            5.604489611517815e-16,
+            1.2920899495794847e-15,
+            2.495011368449931e-15,
+            1.0
+          ]
+        },
+        {
+          "cohort": 28,
+          "effect": 26.65701712499589,
+          "validation_rmse": 16.743748108741315,
+          "weights": [
+            0.0,
+            0.0,
+            1.3439661906924484e-14,
+            1.9536125090803837e-14,
+            0.0,
+            3.2498207900944798e-15,
+            0.0,
+            0.0,
+            0.0,
+            5.269672237793226e-15,
+            3.910661675202649e-15,
+            1.5274814902606023e-14,
+            1.1664626951803129e-14,
+            1.9133031614496317e-15,
+            5.956412060369583e-15,
+            1.0183170953338506e-14,
+            7.095567319887358e-15,
+            4.382990085273829e-15,
+            1.3593568283169118e-14,
+            0.9999999999999958
+          ]
+        }
+      ],
+      "event_path": [
+        {
+          "cohort": 24,
+          "event_week": -8,
+          "effect": 7.0496809999993175
+        },
+        {
+          "cohort": 24,
+          "event_week": -7,
+          "effect": 8.197412999999308
+        },
+        {
+          "cohort": 24,
+          "event_week": -6,
+          "effect": 8.758464999999333
+        },
+        {
+          "cohort": 24,
+          "event_week": -5,
+          "effect": 9.368488999999329
+        },
+        {
+          "cohort": 24,
+          "event_week": -4,
+          "effect": 9.830488999999332
+        },
+        {
+          "cohort": 24,
+          "event_week": -3,
+          "effect": 10.447503999999341
+        },
+        {
+          "cohort": 24,
+          "event_week": -2,
+          "effect": 11.486630999999342
+        },
+        {
+          "cohort": 24,
+          "event_week": -1,
+          "effect": 11.952445999999348
+        },
+        {
+          "cohort": 24,
+          "event_week": 0,
+          "effect": 17.358787999999308
+        },
+        {
+          "cohort": 24,
+          "event_week": 1,
+          "effect": 18.013355999999312
+        },
+        {
+          "cohort": 24,
+          "event_week": 2,
+          "effect": 18.699838999999315
+        },
+        {
+          "cohort": 24,
+          "event_week": 3,
+          "effect": 19.8993849999993
+        },
+        {
+          "cohort": 24,
+          "event_week": 4,
+          "effect": 20.43507699999931
+        },
+        {
+          "cohort": 24,
+          "event_week": 5,
+          "effect": 22.216070999999303
+        },
+        {
+          "cohort": 24,
+          "event_week": 6,
+          "effect": 22.566896999999287
+        },
+        {
+          "cohort": 24,
+          "event_week": 7,
+          "effect": 23.766748999999287
+        },
+        {
+          "cohort": 28,
+          "event_week": -8,
+          "effect": 13.39220799999616
+        },
+        {
+          "cohort": 28,
+          "event_week": -7,
+          "effect": 13.783609999996216
+        },
+        {
+          "cohort": 28,
+          "event_week": -6,
+          "effect": 14.940213999996239
+        },
+        {
+          "cohort": 28,
+          "event_week": -5,
+          "effect": 15.45758899999624
+        },
+        {
+          "cohort": 28,
+          "event_week": -4,
+          "effect": 15.771433999996042
+        },
+        {
+          "cohort": 28,
+          "event_week": -3,
+          "effect": 16.42999999999607
+        },
+        {
+          "cohort": 28,
+          "event_week": -2,
+          "effect": 16.74033399999606
+        },
+        {
+          "cohort": 28,
+          "event_week": -1,
+          "effect": 17.95802299999606
+        },
+        {
+          "cohort": 28,
+          "event_week": 0,
+          "effect": 23.09921099999604
+        },
+        {
+          "cohort": 28,
+          "event_week": 1,
+          "effect": 24.952171999996004
+        },
+        {
+          "cohort": 28,
+          "event_week": 2,
+          "effect": 25.18928299999598
+        },
+        {
+          "cohort": 28,
+          "event_week": 3,
+          "effect": 26.52379199999593
+        },
+        {
+          "cohort": 28,
+          "event_week": 4,
+          "effect": 27.384758999995896
+        },
+        {
+          "cohort": 28,
+          "event_week": 5,
+          "effect": 27.85000099999582
+        },
+        {
+          "cohort": 28,
+          "event_week": 6,
+          "effect": 28.621474999995748
+        },
+        {
+          "cohort": 28,
+          "event_week": 7,
+          "effect": 29.63544399999568
+        }
+      ]
+    },
+    "new_offer_lift": 11.4,
+    "existing_product_change": -0.4865840937500011,
+    "net_revenue_lift": 10.913415906249998,
+    "contribution_lift": 8.63341590625,
+    "pretrend_slope": 0.6626206923076923,
+    "false_launch_placebo": 2.956610499999999,
+    "identification_checks_pass": false,
+    "simulated_truth": 5.7,
+    "absolute_estimation_error": 2.9334159062500005,
+    "quality": {
+      "raw_rows": 70400,
+      "unique_orders": 64000,
+      "panel_rows": 1600,
+      "missing_cells": 0,
+      "reconciles": true,
+      "ledger_net_cents": 7002141430
+    },
+    "event_path": [
+      {
+        "cohort": 24,
+        "event_week": 0,
+        "effect": 5.850210499999999
+      },
+      {
+        "cohort": 24,
+        "event_week": 1,
+        "effect": 6.588978000000001
+      },
+      {
+        "cohort": 24,
+        "event_week": 2,
+        "effect": 7.505401999999998
+      },
+      {
+        "cohort": 24,
+        "event_week": 3,
+        "effect": 8.3859845
+      },
+      {
+        "cohort": 24,
+        "event_week": 4,
+        "effect": 9.152895
+      },
+      {
+        "cohort": 24,
+        "event_week": 5,
+        "effect": 10.114066
+      },
+      {
+        "cohort": 24,
+        "event_week": 6,
+        "effect": 10.909385000000002
+      },
+      {
+        "cohort": 24,
+        "event_week": 7,
+        "effect": 11.769898999999995
+      },
+      {
+        "cohort": 28,
+        "event_week": 0,
+        "effect": 5.3724064999999985
+      },
+      {
+        "cohort": 28,
+        "event_week": 1,
+        "effect": 6.405544499999999
+      },
+      {
+        "cohort": 28,
+        "event_week": 2,
+        "effect": 7.087148500000002
+      },
+      {
+        "cohort": 28,
+        "event_week": 3,
+        "effect": 8.0823195
+      },
+      {
+        "cohort": 28,
+        "event_week": 4,
+        "effect": 9.097965000000006
+      },
+      {
+        "cohort": 28,
+        "event_week": 5,
+        "effect": 9.776140499999997
+      },
+      {
+        "cohort": 28,
+        "event_week": 6,
+        "effect": 10.614625499999999
+      },
+      {
+        "cohort": 28,
+        "event_week": 7,
+        "effect": 11.421684499999998
+      }
+    ],
+    "not_identified_by_checks": "Passing these checks does not establish parallel trends or rule out simultaneous market-specific shocks."
+  }
+]

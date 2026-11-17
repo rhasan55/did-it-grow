@@ -1,50 +1,49 @@
-# What is being estimated
+# Design and limits
 
-The estimand is the average eight-week change in business contribution per baseline-eligible customer caused by making a new offer available in the treated markets. Contribution here means combined net revenue minus an illustrative service cost. It is not full profit: fixed costs, financing costs, customer lifetime value, and downstream cross-sell are outside the model.
+## Outcome
 
-Eligibility is fixed before launch. Treatment is availability in a market, not individual adoption. Conditioning on adoption would select on a post-treatment choice. A real deployment would also need explicit rules for identity resolution across products and for who remains in the analysis after churn.
+The target is the average eight-week effect of making an offer available on contribution per baseline-eligible customer in rollout markets. Contribution combines revenue from both products, net of refunds, less an illustrative service cost. It excludes fixed costs, financing costs, lifetime value, and later cross-sell.
 
-## Simulation and scope
+Treatment is offer availability, not adoption. The eligible population is fixed before launch. Restricting the analysis to adopters would select on a post-treatment choice.
 
-There are 40 fictional markets and 40 observation weeks. Ten markets launch in week 24, ten in week 28, and twenty never launch. Market selection depends on baseline revenue, so treatment is not randomized. Every market has 1,000 baseline-eligible customers. The ledger contains 64,000 unique synthetic charge records, plus duplicate deliveries and earlier versions that omit a later refund. These records are an accounting simulation, not a behavioral model of individual tax filers.
+## Data
 
-The three scenarios share the same seed, market structure, calendar effects, and noise. They are deliberately constructed examples, not a benchmark of how often either estimator succeeds in real data. Geography and staggered timing are hypothetical; Intuit has not said that its program uses this rollout design.
+Forty fictional markets are observed for forty weeks. Ten launch in week 24, ten in week 28, and twenty never launch. Market selection depends on baseline revenue; it is not randomized. Each market has 1,000 baseline-eligible customers.
 
-## SQL contract
+The 64,000 unique ledger records split each market/product/week total into twenty entries, including zero entries. Duplicate deliveries and earlier versions that omit a refund are added on purpose. These are accounting records from a simulation, not a behavioral model of individual filers.
 
-`panel.sql` takes the latest version of each order, recognizes refunds against its original order week, aggregates across both products, and joins a complete market-week spine. The fixed baseline denominator retains customers who never purchase. Money is stored in cents until aggregation. A second run rebuilds rather than appends the output.
+`panel.sql` selects the latest order version, attributes refunds to the original order week, and joins a complete market-week spine. Conflicting payloads at the same version key are rejected. Money stays in cents until aggregation. An independent Python reduction checks the ledger total.
 
-The demonstration has a unique latest correction for each order; equal-key deliveries are identical. Production ingestion would need to reject conflicting payloads with the same order/version/ingestion key. Do not silently resolve conflicting corrections using row order.
+The example rebuilds locally. In a warehouse, corrections would need a keyed MERGE and recomputation of affected historical partitions. Neither that orchestration nor a scale benchmark is implemented here.
 
-A production warehouse would partition scans by order week, track changed order IDs, MERGE their current state, and rebuild every affected historical partition when refunds arrive. This local example demonstrates those semantics with a full rebuild. It is not an implemented warehouse orchestration system or a scale benchmark. The generated CSVs include already-aggregated zero-filled reporting panels for inspection.
+## Difference in differences
 
-## Cohort DiD
+For cohort g and post-launch week t, estimate:
 
-For each rollout cohort g and event week e = 0..7, subtract its change from week g-1 to week g+e from the corresponding never-treated change, with the sign arranged as treated minus control. Average the resulting cohort-time effects. Equal cohort sizes and baseline populations make equal weights appropriate in this example. The later cohort is never compared against the already-treated earlier cohort.
+    ATT(g,t) = mean(Y_t - Y_(g-1) | cohort g)
+               - mean(Y_t - Y_(g-1) | never treated)
 
-This is a simple cohort-time estimator inspired by the modern staggered-adoption literature, not an implementation of the full Callaway–Sant'Anna estimator, doubly robust adjustment, or its inference procedure. No covariate reweighting is needed in the two deliberately parallel-trend worlds. The broken-comparison world violates that assumption on purpose.
+Average over the first eight post-launch weeks and both equal-sized cohorts. The later cohort is never compared with an already-treated cohort. Pre-launch points use the same baseline week for a diagnostic plot; they do not enter the effect average.
 
-The percentile interval resamples whole markets within their original cohort/control strata, 400 times with a fixed seed. It preserves within-market serial dependence, but is conditional on this rollout design. There are only ten treated markets per cohort. The interval does not account for unobserved confounding, interference, model-selection uncertainty, or common shocks correlated across markets. It is not a promise of nominal coverage.
+This is a simple cohort-time estimator, not the full Callaway–Sant'Anna implementation. It relies on parallel untreated trends, no anticipation, and no spillovers. Stable baseline level differences are allowed; different underlying trends are not.
+
+The interval uses 400 whole-market bootstrap draws, resampled separately within each cohort/control stratum. That preserves within-market serial dependence, conditional on the rollout. With only ten treated markets per cohort, it is not a guarantee of nominal coverage. It does not cover confounding or shocks correlated across markets.
 
 ## Synthetic control
 
-Fit each cohort's mean outcome as a convex combination of the twenty never-treated market series. Nonnegative weights sum to one. Fit the twelve weeks g-16..g-5, hold out the four weeks g-4..g-1, then evaluate the same eight post-launch weeks as DiD. The fixed ridge penalty is 0.01 after scaling the training loss. No post-launch data selects weights or tuning parameters. The report shows held-out RMSE, not only training fit.
+For each cohort, fit a convex combination of never-treated market series: nonnegative weights summing to one. Train on g-16 through g-5; hold out g-4 through g-1; evaluate the same eight post-launch weeks. The ridge penalty is fixed at 0.01 after scaling the training loss. Post-launch outcomes never select weights or tuning parameters.
 
-No confidence interval is reported for synthetic control. This is a robustness comparison, not an independent replication: both methods share the same donors and can fail together. The high-baseline later cohort can be near or outside donor support; held-out error makes that limitation visible. There is no in-space placebo p-value, and none should be inferred.
+The report shows the worst cohort's held-out RMSE. No synthetic-control confidence interval or placebo p-value is claimed. Both estimators use the same donors and can fail together. The higher-baseline cohort can be near or outside donor support, which is visible in held-out error.
 
-## Checks and decision language
+## When to stop
 
-The example flags a pre-launch gap slope above $0.15 per customer per week, a false-launch effect above $0.75 in absolute value, or synthetic-control validation RMSE above $1. These are visible illustrative tolerances, not statistical significance tests. The false launch is eight weeks early and its full evaluation window ends before the real launch. A flagged scenario is marked HOLD, even if an interval excludes zero.
+Demo review tolerances are $0.15 per customer per week for the pre-launch gap slope, $0.75 for the absolute false-launch effect, and $1 for held-out RMSE. These are explicit illustrative tolerances, not significance tests. The false launch is eight weeks early; its evaluation ends before the actual launch.
 
-A passing scenario may be labeled growth or migration *in this simulation*, based on its contribution interval. Passing checks does not establish parallel trends. A market-specific change appearing exactly at launch could be invisible to every pre-period diagnostic. Before using this on actual data, investigate concurrent marketing/pricing changes, spillovers, anticipation, donor exposure, missing accounts, differential trends, and delayed revenue recognition.
+Passing those checks does not establish parallel trends. A new market-specific shock at rollout could evade every pre-period diagnostic. National launches may have no unaffected donor markets. Check contemporaneous pricing, marketing, eligibility, identity resolution, and spillovers before using this design.
 
-The sensitivity slider subtracts an assumed extra treated-market trend times 4.5 weeks, the average distance from the baseline week to the eight outcome weeks. It shifts the point estimate and interval equally. This is an interpretable bias calculation, not an HonestDiD bound or a replacement for research design.
-
-## Why the ledger matters
-
-A causal estimator cannot rescue an outcome with duplicated orders, ignored refunds, cross-product revenue omitted, or a denominator changed after launch. The SQL tests and accounting reconciliation come before interpreting the estimate.
+The slider subtracts an assumed differential trend multiplied by 4.5 weeks, the mean distance from the baseline week to the outcome weeks. It shifts the estimate and interval equally. This is a bias calculation, not a formal sensitivity bound.
 
 ## References
 
-- Callaway and Sant'Anna, [Introduction to DiD with Multiple Time Periods](https://bcallaway11.github.io/did/articles/multi-period-did.html).
-- Abadie (2021), [Using Synthetic Controls: Feasibility, Data Requirements, and Methodological Aspects](https://www.aeaweb.org/articles?id=10.1257/jel.20191450).
+- Callaway and Sant'Anna, [DiD with Multiple Time Periods](https://bcallaway11.github.io/did/articles/multi-period-did.html).
+- Abadie (2021), [Using Synthetic Controls](https://www.aeaweb.org/articles?id=10.1257/jel.20191450).

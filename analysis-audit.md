@@ -1,16 +1,17 @@
-# Four ways a convincing launch analysis can be wrong
+# Checks behind the report
 
-This project was developed with AI coding assistance. Its claims are checked by executable tests, accounting reconciliation, pre-period diagnostics, and simulation truth. There is no AI model in the analysis runtime.
+The code was developed with AI assistance. The following checks are executable in `test_analysis.py`; they do not depend on a model approving its own answer.
 
-The examples below are deliberately written failure cases. They are not presented as outputs obtained from a named model, or as incidents from an employer.
+- Reconcile cents against an independent Python reduction of the latest order versions.
+- Preserve all 1,600 market-week cells, including pre-launch zero revenue for the new offer.
+- Reject conflicting payloads with the same order/version/ingestion key.
+- Recover the known effect in the two deliberately parallel-trend simulations.
+- Return a near-zero estimate when there is no effect.
+- Flag the nonparallel comparison even when its estimate is positive.
+- Change the simulation answer key without changing fitted estimates.
+- Change post-launch outcomes without changing synthetic-control weights.
+- Change the early cohort's effect without contaminating the later cohort's controls.
 
-| Tempting claim or implementation | Why it fails | What this project does |
-| --- | --- | --- |
-| “The new offer earns more revenue, so the program grew the business.” | Customers may have moved from an existing product. Service costs can make the combined contribution negative. | Reconcile both products and costs before estimating impact. |
-| Join every delivered order event and SUM revenue. | Retries duplicate deliveries; earlier versions omit refunds. | Resolve the current order version first, then aggregate. A cent-level reconciliation checks the result. |
-| Fit one two-way fixed-effects regression to all staggered adopters. | Already-treated markets can become controls under heterogeneous effects. | Use explicit cohort-time comparisons against never-treated markets. A test changes the earlier cohort's effect and checks that the later cohort does not inherit it. |
-| “The interval excludes zero, so the launch worked.” | A confidence interval describes sampling variation under assumptions; it cannot cure a broken comparison. | A deliberately nonparallel world gets HOLD despite an attractive estimate. |
+The SQL was also changed to load input tables in bulk rather than insert records one at a time. The input is small; no production-scale throughput claim is made.
 
-Two further tests target subtle mistakes: changing simulation truth must not change the estimate; changing post-launch outcomes must not change synthetic-control donor weights.
-
-The useful skill is being able to explain why an output is wrong, produce a failing check, and fix the measurement—not calling an analysis trustworthy because an AI generated it or two methods agree.
+These are checks of this implementation and these constructed cases. They cannot show that the identifying assumptions hold in real customer data.

@@ -1,10 +1,10 @@
 [
   {
     "scenario": "growth",
-    "label": "Real growth",
+    "label": "Added value",
     "seed": 55,
     "units": "USD per baseline-eligible customer per week",
-    "verdict": "GROWTH in this simulation",
+    "verdict": "GROWTH: contribution increased",
     "naive_before_after": 7.4951218125000025,
     "cohort_did": 5.708415906249999,
     "bootstrap_95_interval": [
@@ -332,14 +332,96 @@
         "effect": 6.221684499999993
       }
     ],
+    "pre_event_path": [
+      {
+        "cohort": 24,
+        "event_week": -8,
+        "effect": 0.25653749999999764
+      },
+      {
+        "cohort": 24,
+        "event_week": -7,
+        "effect": 0.24411750000000088
+      },
+      {
+        "cohort": 24,
+        "event_week": -6,
+        "effect": 0.2266915000000016
+      },
+      {
+        "cohort": 24,
+        "event_week": -5,
+        "effect": 0.16861049999999922
+      },
+      {
+        "cohort": 24,
+        "event_week": -4,
+        "effect": -0.007784499999998529
+      },
+      {
+        "cohort": 24,
+        "event_week": -3,
+        "effect": 0.19288949999999955
+      },
+      {
+        "cohort": 24,
+        "event_week": -2,
+        "effect": 0.25856999999999836
+      },
+      {
+        "cohort": 24,
+        "event_week": -1,
+        "effect": 0.0
+      },
+      {
+        "cohort": 28,
+        "event_week": -8,
+        "effect": -0.2906880000000005
+      },
+      {
+        "cohort": 28,
+        "event_week": -7,
+        "effect": -0.315627000000003
+      },
+      {
+        "cohort": 28,
+        "event_week": -6,
+        "effect": -0.13246950000000113
+      },
+      {
+        "cohort": 28,
+        "event_week": -5,
+        "effect": -0.33947950000000104
+      },
+      {
+        "cohort": 28,
+        "event_week": -4,
+        "effect": -0.23176600000000322
+      },
+      {
+        "cohort": 28,
+        "event_week": -3,
+        "effect": -0.13900050000000094
+      },
+      {
+        "cohort": 28,
+        "event_week": -2,
+        "effect": -0.24872550000000118
+      },
+      {
+        "cohort": 28,
+        "event_week": -1,
+        "effect": 0.0
+      }
+    ],
     "not_identified_by_checks": "Passing these checks does not establish parallel trends or rule out simultaneous market-specific shocks."
   },
   {
     "scenario": "migration",
-    "label": "Same customers, different product",
+    "label": "Revenue shift",
     "seed": 55,
     "units": "USD per baseline-eligible customer per week",
-    "verdict": "MIGRATION \u2014 no contribution gain",
+    "verdict": "MIGRATION: contribution decreased",
     "naive_before_after": -0.48487818749999434,
     "cohort_did": -2.2715840937500005,
     "bootstrap_95_interval": [
@@ -667,14 +749,96 @@
         "effect": -2.738315500000005
       }
     ],
+    "pre_event_path": [
+      {
+        "cohort": 24,
+        "event_week": -8,
+        "effect": 0.25653749999999764
+      },
+      {
+        "cohort": 24,
+        "event_week": -7,
+        "effect": 0.24411750000000088
+      },
+      {
+        "cohort": 24,
+        "event_week": -6,
+        "effect": 0.2266915000000016
+      },
+      {
+        "cohort": 24,
+        "event_week": -5,
+        "effect": 0.16861049999999922
+      },
+      {
+        "cohort": 24,
+        "event_week": -4,
+        "effect": -0.007784499999998529
+      },
+      {
+        "cohort": 24,
+        "event_week": -3,
+        "effect": 0.19288949999999955
+      },
+      {
+        "cohort": 24,
+        "event_week": -2,
+        "effect": 0.25856999999999836
+      },
+      {
+        "cohort": 24,
+        "event_week": -1,
+        "effect": 0.0
+      },
+      {
+        "cohort": 28,
+        "event_week": -8,
+        "effect": -0.2906880000000005
+      },
+      {
+        "cohort": 28,
+        "event_week": -7,
+        "effect": -0.315627000000003
+      },
+      {
+        "cohort": 28,
+        "event_week": -6,
+        "effect": -0.13246950000000113
+      },
+      {
+        "cohort": 28,
+        "event_week": -5,
+        "effect": -0.33947950000000104
+      },
+      {
+        "cohort": 28,
+        "event_week": -4,
+        "effect": -0.23176600000000322
+      },
+      {
+        "cohort": 28,
+        "event_week": -3,
+        "effect": -0.13900050000000094
+      },
+      {
+        "cohort": 28,
+        "event_week": -2,
+        "effect": -0.24872550000000118
+      },
+      {
+        "cohort": 28,
+        "event_week": -1,
+        "effect": 0.0
+      }
+    ],
     "not_identified_by_checks": "Passing these checks does not establish parallel trends or rule out simultaneous market-specific shocks."
   },
   {
     "scenario": "broken_comparison",
-    "label": "A comparison you should reject",
+    "label": "Bad comparison",
     "seed": 55,
     "units": "USD per baseline-eligible customer per week",
-    "verdict": "HOLD \u2014 comparison fails checks",
+    "verdict": "HOLD: comparison fails checks",
     "naive_before_after": 12.695121812500002,
     "cohort_did": 8.63341590625,
     "bootstrap_95_interval": [
@@ -1000,6 +1164,88 @@
         "cohort": 28,
         "event_week": 7,
         "effect": 11.421684499999998
+      }
+    ],
+    "pre_event_path": [
+      {
+        "cohort": 24,
+        "event_week": -8,
+        "effect": -4.293462500000002
+      },
+      {
+        "cohort": 24,
+        "event_week": -7,
+        "effect": -3.6558825
+      },
+      {
+        "cohort": 24,
+        "event_week": -6,
+        "effect": -3.0233085000000006
+      },
+      {
+        "cohort": 24,
+        "event_week": -5,
+        "effect": -2.4313895000000003
+      },
+      {
+        "cohort": 24,
+        "event_week": -4,
+        "effect": -1.9577844999999994
+      },
+      {
+        "cohort": 24,
+        "event_week": -3,
+        "effect": -1.1071105000000012
+      },
+      {
+        "cohort": 24,
+        "event_week": -2,
+        "effect": -0.39143000000000133
+      },
+      {
+        "cohort": 24,
+        "event_week": -1,
+        "effect": 0.0
+      },
+      {
+        "cohort": 28,
+        "event_week": -8,
+        "effect": -4.840688
+      },
+      {
+        "cohort": 28,
+        "event_week": -7,
+        "effect": -4.215627000000003
+      },
+      {
+        "cohort": 28,
+        "event_week": -6,
+        "effect": -3.382469500000002
+      },
+      {
+        "cohort": 28,
+        "event_week": -5,
+        "effect": -2.9394795
+      },
+      {
+        "cohort": 28,
+        "event_week": -4,
+        "effect": -2.181766000000002
+      },
+      {
+        "cohort": 28,
+        "event_week": -3,
+        "effect": -1.439000500000001
+      },
+      {
+        "cohort": 28,
+        "event_week": -2,
+        "effect": -0.8987255000000018
+      },
+      {
+        "cohort": 28,
+        "event_week": -1,
+        "effect": 0.0
       }
     ],
     "not_identified_by_checks": "Passing these checks does not establish parallel trends or rule out simultaneous market-specific shocks."
